@@ -1,21 +1,15 @@
-import express from 'express';
-import cors from 'cors';
-import ProvinceService from './src/services/province-service.js';
+import express from "express";
+import cors from "cors";
+import ProvinceRouter from "./src/controllers/province-controller.js";
 
 const app = express();
+const port = 3000;
 
 app.use(cors());
 app.use(express.json());
 
-const service = new ProvinceService();
+app.use("/api/province", ProvinceRouter);
 
-app.get('/api/province', async (req, res) => {
-    const provinces = await service.getAllAsync();
-    res.json(provinces);
-});
-
-const PORT = 3000;
-
-app.listen(PORT, () => {
-    console.log(`Servidor escuchando en puerto ${PORT}`);
+app.listen(port, () => {
+    console.log(`Servidor escuchando en puerto ${port}`);
 });
