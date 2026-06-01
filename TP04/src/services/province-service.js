@@ -5,7 +5,6 @@ export default class ProvinceService {
     repository = new ProvinceRepository();
 
     getAllAsync = async () => {
-        const provinces = await this.repository.getAllAsync();
-        return provinces;
+        return await this.repository.getAllAsync();
     }
 }
