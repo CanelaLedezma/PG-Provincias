@@ -10,4 +10,7 @@ export default class ProvinceService {
     getByIdAsync = async (id) => {
         return await this.repository.getByIdAsync(id); //controller pide una provincia por id: se la pido al Repository
     }
+    createAsync = async (province) =>{
+        return await this.repository.createAsync(province);
+    }
 }
