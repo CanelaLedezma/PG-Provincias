@@ -19,6 +19,17 @@ router.get("/:id", async (req, res) => {
     } else {
         res.status(200).json(province);
     }
-});
+})
 
+router.post("/", async (req, res) => { //endpoint post para crear nueva provincia
+    const province = req.body;
+
+    const result = await service.createAsync(province);
+
+    if (result) {
+        res.status(201).send("Provincia creada");
+    } else {
+        res.status(400).send("No se pudo crear la provincia");
+    }
+});
 export default router;
