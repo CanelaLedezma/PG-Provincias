@@ -9,4 +9,16 @@ router.get("/", async (req, res) => {
     res.status(200).json(provinces);
 });
 
+router.get("/:id", async (req, res) => {
+    const id = req.params.id;
+
+    const province = await service.getByIdAsync(id);
+
+    if (province == null) {
+        res.status(404).send("Provincia no encontrada");
+    } else {
+        res.status(200).json(province);
+    }
+});
+
 export default router;
