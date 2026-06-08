@@ -13,8 +13,12 @@ export default class ProvinceService {
     createAsync = async (province) =>{
         return await this.repository.createAsync(province);
     }
-    
+
     updateAsync = async (province) => {
     return await this.repository.updateAsync(province);
+}
+
+deleteAsync = async (id) => {
+    return await this.repository.deleteAsync(id);
 }
 }

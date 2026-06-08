@@ -46,4 +46,16 @@ router.put("/", async (req, res) => {
         res.status(201).send("Provincia actualizada");
     }
 });
+router.delete("/:id", async (req, res) => {
+    const id = req.params.id;
+
+    const result = await service.deleteAsync(id);
+
+    if (result) {
+        res.status(200).send("Provincia eliminada");
+    } else {
+        res.status(404).send("Provincia no encontrada");
+    }
+});
+
 export default router;

@@ -113,4 +113,25 @@ updateAsync = async (province) => {
         return false;
     }
 }
+deleteAsync = async (id) => {
+    const client = new Client(DBConfig);
+
+    try {
+        await client.connect();
+
+        const sql = 'DELETE FROM provinces WHERE id = $1';
+        const values = [id];
+
+        const result = await client.query(sql, values);
+
+        await client.end();
+
+        return result.rowCount > 0;
+    } catch (error) {
+        console.log(error);
+        await client.end();
+        return false;
+    }
+}
+
 }
