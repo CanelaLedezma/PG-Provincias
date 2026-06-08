@@ -76,4 +76,41 @@ export default class ProvinceRepository {
         return false;
     }
 }
+
+updateAsync = async (province) => {
+    const client = new Client(DBConfig);
+
+    try {
+        await client.connect();
+
+        const sql = `
+            UPDATE provinces
+            SET name = $1,
+                full_name = $2,
+                latitude = $3,
+                longitude = $4,
+                display_order = $5
+            WHERE id = $6
+        `;
+
+        const values = [
+            province.name,
+            province.full_name,
+            province.latitude,
+            province.longitude,
+            province.display_order,
+            province.id
+        ];
+
+        const result = await client.query(sql, values);
+
+        await client.end();
+
+        return result.rowCount > 0;
+    } catch (error) {
+        console.log(error);
+        await client.end();
+        return false;
+    }
+}
 }
