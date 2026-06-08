@@ -32,4 +32,18 @@ router.post("/", async (req, res) => { //endpoint post para crear nueva provinci
         res.status(400).send("No se pudo crear la provincia");
     }
 });
+
+router.put("/", async (req, res) => {
+    const province = req.body;
+
+    const result = await service.updateAsync(province);
+
+    if (result == null) {
+        res.status(404).send("Provincia no encontrada");
+    } else if (result === false) {
+        res.status(400).send("No se pudo actualizar la provincia");
+    } else {
+        res.status(201).send("Provincia actualizada");
+    }
+});
 export default router;
