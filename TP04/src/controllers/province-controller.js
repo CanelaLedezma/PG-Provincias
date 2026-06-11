@@ -5,14 +5,14 @@ const router = express.Router();// guardo endpoints de provincias
 const service = new ProvinceService();
 
 router.get("/", async (req, res) => {//antes de get(req) 
-    const provinces = await service.getAllAsync();  //espero q service devuelva provinces (res)
+    const provinces = await service.getAllAsync(); // le pido al service que traiga todas las provincias
     res.status(200).json(provinces);
 });
 
 router.get("/:id", async (req, res) => {
     const id = req.params.id; //datos en URL
 
-    const province = await service.getByIdAsync(id); //espero q service devuelva id provinces (res)
+    const province = await service.getByIdAsync(id);// le pido al service que busque una provincia por id
 
     if (province == null) {
         res.status(404).send("Provincia no encontrada");
@@ -24,7 +24,7 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => { //endpoint post para crear nueva provincia
     const province = req.body; //datos en JSON (desde Postman)
 
-    const result = await service.createAsync(province);
+    const result = await service.createAsync(province); //le pido a service q cree la provincia
 
     if (result) {
         res.status(201).send("Provincia creada");
@@ -49,7 +49,7 @@ router.put("/", async (req, res) => {
 router.delete("/:id", async (req, res) => {
     const id = req.params.id; //datos en URL
 
-    const result = await service.deleteAsync(id);
+    const result = await service.deleteAsync(id); //le pido a service q elimine la provincia con ese id
 
     if (result) {
         res.status(200).send("Provincia eliminada");
