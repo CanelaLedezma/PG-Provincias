@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {//antes de get(req)
 });
 
 router.get("/:id", async (req, res) => {
-    const id = req.params.id;
+    const id = req.params.id; //datos en URL
 
     const province = await service.getByIdAsync(id); //espero q service devuelva id provinces (res)
 
@@ -22,7 +22,7 @@ router.get("/:id", async (req, res) => {
 })
 
 router.post("/", async (req, res) => { //endpoint post para crear nueva provincia
-    const province = req.body;
+    const province = req.body; //datos en JSON (desde Postman)
 
     const result = await service.createAsync(province);
 
@@ -34,7 +34,7 @@ router.post("/", async (req, res) => { //endpoint post para crear nueva provinci
 });
 
 router.put("/", async (req, res) => {
-    const province = req.body;
+    const province = req.body; //datos en JSON (desde Postman)
 
     const result = await service.updateAsync(province);
 
@@ -47,7 +47,7 @@ router.put("/", async (req, res) => {
     }
 });
 router.delete("/:id", async (req, res) => {
-    const id = req.params.id;
+    const id = req.params.id; //datos en URL
 
     const result = await service.deleteAsync(id);
 
