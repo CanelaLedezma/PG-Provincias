@@ -1,7 +1,7 @@
 import pg from 'pg';
 import DBConfig from '../configs/db-config.js';
 
-const { Client } = pg;
+const { Client } = pg; //para conectarse con PostgreSQL
 
 export default class ProvinceRepository {
 
@@ -16,11 +16,12 @@ export default class ProvinceRepository {
 
             await client.end();
 
-            return result.rows;
+            return result.rows; //filas que devolvió el SELECT.
         } catch (error) {
             console.log(error);
-            await client.end();
-            return []; //si no puede traer provincas, devuelve una lista vacia
+            await client.end(); //cierro conexión con BD
+            
+            return []; //si no puede traer provincas, lista vacia
         }
     }
 
