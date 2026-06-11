@@ -19,7 +19,7 @@ router.get("/:id", async (req, res) => {
     } else {
         res.status(200).json(province);
     }
-})
+});
 
 router.post("/", async (req, res) => { //endpoint post para crear nueva provincia
     const province = req.body; //datos en JSON (desde Postman)
