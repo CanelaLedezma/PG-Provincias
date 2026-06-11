@@ -48,7 +48,7 @@ export default class ProvinceRepository {
             return null;
         }
     }
-    createAsync = async (province) => {
+    createAsync = async (province) => { //post
         const client = new Client (DBConfig);
         try{
             await client.connect();
@@ -77,7 +77,7 @@ export default class ProvinceRepository {
     }
 }
 
-updateAsync = async (province) => {
+updateAsync = async (province) => { //put
     const client = new Client(DBConfig);
 
     try {
