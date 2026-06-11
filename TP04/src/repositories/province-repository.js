@@ -36,10 +36,10 @@ export default class ProvinceRepository {
 
             const result = await client.query(sql, values);
 
-            await client.end();
+            await client.end(); //cierro conexión con BD
 
-            if (result.rows.length > 0) {
-                return result.rows[0];
+            if (result.rows.length > 0) { //Si encontró al menos una provincia.
+                return result.rows[0]; //devuelve la primera q encontro
             }
 
             return null;
