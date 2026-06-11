@@ -47,7 +47,7 @@ router.put("/", async (req, res) => {
     }
 });
 router.delete("/:id", async (req, res) => {
-    const id = req.params.id; //datos en URL
+    const id = req.params.id; // tomo el id que viene en la URL
 
     const result = await service.deleteAsync(id); //le pido a service q elimine la provincia con ese id
 
