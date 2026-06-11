@@ -1,7 +1,7 @@
 import express from "express";
 import ProvinceService from "../services/province-service.js";
 
-const router = express.Router();// guardo las rutas de provincias
+const router = express.Router();// guardo endpoints de provincias
 const service = new ProvinceService();
 
 router.get("/", async (req, res) => {//antes de get(req) 
