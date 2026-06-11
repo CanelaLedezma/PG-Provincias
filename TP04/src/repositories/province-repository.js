@@ -60,7 +60,7 @@ export default class ProvinceRepository {
         `;
         
         const values = [
-            province.name,
+            province.name, //$1
             province.full_name,
             province.latitude,
             province.longitude,
