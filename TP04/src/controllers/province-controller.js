@@ -4,8 +4,8 @@ import ProvinceService from "../services/province-service.js";
 const router = express.Router();// guardo las rutas de provincias
 const service = new ProvinceService();
 
-router.get("/", async (req, res) => { //antes de get(req) espero q service me de provinces (res)
-    const provinces = await service.getAllAsync();
+router.get("/", async (req, res) => {//antes de get(req) 
+    const provinces = await service.getAllAsync();  //espero q service me de provinces (res)
     res.status(200).json(provinces);
 });
 
