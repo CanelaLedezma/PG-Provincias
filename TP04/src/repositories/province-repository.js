@@ -5,7 +5,7 @@ const { Client } = pg;
 
 export default class ProvinceRepository {
 
-    getAllAsync = async () => {
+    getAllAsync = async () => { //get
         const client = new Client(DBConfig);
 
         try {
@@ -24,7 +24,7 @@ export default class ProvinceRepository {
         }
     }
 
-    getByIdAsync = async (id) => {
+    getByIdAsync = async (id) => { //get byId
         const client = new Client(DBConfig);
 
         try {
