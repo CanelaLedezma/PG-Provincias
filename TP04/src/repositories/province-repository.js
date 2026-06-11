@@ -67,7 +67,7 @@ export default class ProvinceRepository {
             province.display_order
         ];
         
-        await client.query(sql, values);
+        await client.query(sql, values);//ejecuta INSERT en PostgreSQL 
         await client.end();
         return true;
     }
@@ -103,7 +103,7 @@ updateAsync = async (province) => { //put
             province.id
         ];
 
-        const result = await client.query(sql, values);
+        const result = await client.query(sql, values); //ejecuta UPDATE en PostgreSQL 
 
         await client.end();
 
@@ -123,7 +123,7 @@ deleteAsync = async (id) => {
         const sql = 'DELETE FROM provinces WHERE id = $1';
         const values = [id];
 
-        const result = await client.query(sql, values);
+        const result = await client.query(sql, values); //ejecuta DELETE en PostgreSQL 
 
         await client.end();
 
