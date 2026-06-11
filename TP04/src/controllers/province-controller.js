@@ -5,14 +5,14 @@ const router = express.Router();// guardo endpoints de provincias
 const service = new ProvinceService();
 
 router.get("/", async (req, res) => {//antes de get(req) 
-    const provinces = await service.getAllAsync();  //espero q service me de provinces (res)
+    const provinces = await service.getAllAsync();  //espero q service devuelva provinces (res)
     res.status(200).json(provinces);
 });
 
 router.get("/:id", async (req, res) => {
     const id = req.params.id;
 
-    const province = await service.getByIdAsync(id);
+    const province = await service.getByIdAsync(id); //espero q service devuelva id provinces (res)
 
     if (province == null) {
         res.status(404).send("Provincia no encontrada");
