@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {//antes de get(req)
 router.get("/:id", async (req, res) => {
     const id = req.params.id; //datos en URL
 
-    const province = await service.getByIdAsync(id);// le pido al service que busque una provincia por id
+    const province = await service.getByIdAsync(id);// le pido al service que busque la provincia por id
 
     if (province == null) {
         res.status(404).send("Provincia no encontrada");
