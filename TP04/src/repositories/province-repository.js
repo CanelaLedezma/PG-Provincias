@@ -31,7 +31,7 @@ export default class ProvinceRepository {
         try {
             await client.connect();
 
-            const sql = 'SELECT * FROM provinces WHERE id = $1';
+            const sql = 'SELECT * FROM provinces WHERE id = $1'; // $ posicion
             const values = [id];
 
             const result = await client.query(sql, values);
